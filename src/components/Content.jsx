@@ -36,7 +36,7 @@ const Content = (props) => {
         }
     }
 
-    async function  setTracks(id) {
+    async function setTracks(id) {
         props.SetPopupContent(<TrackList tracks={await getTracks(id)}/>)
     }
 
@@ -45,13 +45,19 @@ const Content = (props) => {
             <div className="spotify-search">
                 <input className="search-inp" type='search' onChange={(e) => {
                     setSearchValue(e.currentTarget.value)
+                }} onKeyPress={(e) => {
+                    if (e.key === 'Enter') {
+                        searchAlbum()
+                    }
                 }}/>
                 <input className="search-btn bg-img" type='button' style={{backgroundImage: 'url(' + search_img + ')'}}
                        onClick={searchAlbum}/>
             </div>
             <div className='content'>
                 {albumsData.albums && albumsData.albums.items.map(item => (
-                    <div className="content-item" key={item.id} onClick={(() => { setTracks(item.id) })}>
+                    <div className="content-item" key={item.id} onClick={(() => {
+                        setTracks(item.id)
+                    })}>
                         <img src={item.images[1].url} className="album-image" alt='trable with image'/>
                         <h3 className="text-truncate" title={item.name}>{item.name}</h3>
                         <p className="album-description">Дата релиза: {item.release_date}</p>
