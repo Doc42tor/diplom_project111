@@ -1,23 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
+import './index.css'
+import Content from "./components/Content";
+import banner from "./img/Spotify_Logo_CMYK_White.png";
+import Popup from "./components/Popup";
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <p>
-//           Edit <code>src/App.tsx</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
+function App() {
+    const [isOpen, setIsOpen] = useState(false);
+    const [content, setContent] = useState({});
 
-// export default App;
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+    }
+
+    const SetPopupContent = (content: {}) => {
+        setContent(content)
+        togglePopup()
+    }
+
+    return (
+        <div className="App spotify-background">
+            <header className="sticky-top">
+                <div className="spotify-head">
+                    <img className="spotify-logo" src={banner} alt='Trable with image'/>
+                </div>
+            </header>
+            <Content SetPopupContent={SetPopupContent}/>
+            { isOpen && <Popup content={content} closePopup={togglePopup}/>}
+        </div>
+    );
+}
+
+export default App;

@@ -1,0 +1,194 @@
+body {
+    margin: 0;
+}
+
+.App {
+    min-height: 100vh;
+}
+
+.spotify-background {
+    background-color: #121212;
+}
+
+.sticky-top {
+    position: sticky;
+    top: 0;
+}
+
+.sticky-bottom {
+    position: sticky;
+    bottom: 0;
+}
+
+.spotify-head {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.spotify-logo {
+    width: 132px;
+    padding: 20px 0 20px;
+}
+
+.spotify-search {
+    padding: 25px 25vw;
+    display: flex;
+    justify-content: center;
+}
+
+.search-inp {
+    border: 2px solid #707070;
+    border-right: none;
+    height: 36px;
+    width: 100%;
+    border-radius: 18px 0 0 18px;
+    padding-left: 18px;
+    outline: none;
+}
+
+.search-btn {
+    border: 2px solid #707070;
+    border-left: none;
+    height: 36px;
+    width: 36px;
+    border-radius: 0 50% 50% 0;
+    background-color: white;
+    cursor: pointer;
+
+}
+
+.bg-img {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 76%;
+}
+
+.page-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.page-button {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    filter: invert(100%);
+    cursor: pointer;
+}
+
+.page-counter {
+    color: white;
+    font-size: x-large;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 350px);
+    gap: 25px;
+    justify-content: center;
+}
+
+.content-item {
+    background-color: #575656;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.content-item:hover {
+    background-color: #262626;
+}
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.album-description {
+    color: #b3b3b3;
+    line-height: 1rem;
+}
+
+.album-image {
+    height: 300px;
+    width: 300px;
+}
+
+/* TrackList style */
+.track-wrap {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #575656;
+    margin: 2.5px;
+    border-radius: 10px;
+    gap: 10px;
+}
+
+.track-num {
+    color: #b3b3b3;
+}
+
+.track-name {
+    flex: 1;
+    font-size: 20px;
+}
+
+.track-dur {
+    color: #b3b3b3;
+}
+
+.track-play {
+    padding: 5px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Popup style */
+.popup-box {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.box {
+    position: relative;
+    width: 70%;
+    margin: 0 auto;
+    height: 100%;
+    max-height: 70vh;
+    margin-top: calc(100vh - 85vh - 20px);
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    border: 1px solid #999;
+}
+
+.close-icon {
+    content: 'x';
+    cursor: pointer;
+    position: fixed;
+    right: calc(15% - 30px);
+    top: calc(100vh - 85vh - 33px);
+    background: #ededed;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid #999;
+    font-size: 20px;
+}
+
+.popup-content {
+    height: 100%;
+    overflow: auto;
+}
